@@ -1,5 +1,7 @@
 # MyBox
 
+2018.x compatible
+
 [![openupm](https://img.shields.io/npm/v/com.mybox?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.mybox/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/Deadcows/MyBox/blob/master/LICENSE.md)
 
