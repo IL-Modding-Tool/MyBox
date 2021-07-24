@@ -18,20 +18,7 @@ namespace MyBox.Internal
 
 		static MyBoxWindow()
 		{
-			if (AutoUpdateCheckIsEnabled)
-			{
-				MyBoxUtilities.GetMyBoxLatestVersionAsync(version =>
-				{
-					_installedVersion = MyBoxUtilities.GetMyBoxInstalledVersion();
-					_latestVersion = version;
-					if (!_installedVersion.VersionsMatch(_latestVersion))
-					{
-						var versions = "Installed version: " + _installedVersion.AsSting + ". Latest version: " + _latestVersion.AsSting;
-						var message = "It's time to update MyBox :)! Use \"Tools/MyBox/Update MyBox\". " + versions;
-						WarningsPool.Log(message);
-					}
-				});
-			}
+			// We're stuck in 2018. So, no.
 		}
 
 		[MenuItem("Tools/MyBox/MyBox Window", priority = 1)]
@@ -57,30 +44,30 @@ namespace MyBox.Internal
 
 		private void OnGUI()
 		{
-			EditorGUILayout.LabelField("You are using " + (MyBoxUtilities.InstalledViaUPM ? "PackageManager version!" : "Git version!"));
-			if (!MyBoxUtilities.InstalledViaUPM) EditorGUILayout.LabelField("PackageManager version is easier to update ;)");
+			// EditorGUILayout.LabelField("You are using " + (MyBoxUtilities.InstalledViaUPM ? "PackageManager version!" : "Git version!"));
+			// if (!MyBoxUtilities.InstalledViaUPM) EditorGUILayout.LabelField("PackageManager version is easier to update ;)");
 
-			EditorGUILayout.Space();
-			EditorGUILayout.LabelField("Current version: " + (_installedVersion == null ? "..." : _installedVersion.AsSting));
-			EditorGUILayout.LabelField("Latest version: " + (_latestVersion == null ? "..." : _latestVersion.AsSting));
+			// EditorGUILayout.Space();
+			// EditorGUILayout.LabelField("Current version: " + (_installedVersion == null ? "..." : _installedVersion.AsSting));
+			// EditorGUILayout.LabelField("Latest version: " + (_latestVersion == null ? "..." : _latestVersion.AsSting));
 
-			using (new EditorGUILayout.HorizontalScope())
-			{
-				if (GUILayout.Button("Update GIT packages", EditorStyles.toolbarButton))
-				{
-					if (!MyBoxUtilities.UpdateGitPackages())
-						ShowNotification(new GUIContent("There is no git packages installed"));
-				}
+			// using (new EditorGUILayout.HorizontalScope())
+			// {
+			// 	if (GUILayout.Button("Update GIT packages", EditorStyles.toolbarButton))
+			// 	{
+			// 		if (!MyBoxUtilities.UpdateGitPackages())
+			// 			ShowNotification(new GUIContent("There is no git packages installed"));
+			// 	}
 
-				if (GUILayout.Button("Open Git releases page", EditorStyles.toolbarButton))
-				{
-					MyBoxUtilities.OpenMyBoxGitInBrowser();
-				}
-			}
+			// 	if (GUILayout.Button("Open Git releases page", EditorStyles.toolbarButton))
+			// 	{
+			// 		MyBoxUtilities.OpenMyBoxGitInBrowser();
+			// 	}
+			// }
 
-			EditorGUILayout.Space();
-			EditorGUILayout.Space();
-			EditorGUILayout.Space();
+			// EditorGUILayout.Space();
+			// EditorGUILayout.Space();
+			// EditorGUILayout.Space();
 			EditorGUILayout.LabelField("MyGUI.Colors:");
 			using (new EditorGUILayout.HorizontalScope())
 			{
